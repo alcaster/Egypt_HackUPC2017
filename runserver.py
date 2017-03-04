@@ -11,4 +11,5 @@ if __name__ == '__main__':
         app.run(host, port)
     except (IndexError, ValueError):
         print("Wrong arguments. Expected <host> <port>. Running on default.")
+
         app.run(DEFAULT_HOST, DEFAULT_PORT)
