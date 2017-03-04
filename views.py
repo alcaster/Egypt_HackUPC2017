@@ -10,6 +10,13 @@ socketio = SocketIO(app, async_mode=async_mode)
 def home():
     return render_template("index.jinja2")
 
-@socketio.on('my_ping', namespace='/test')
-def ping_pong():
-        emit('my_pong')
+@socketio.on('connect', namespace='/test')
+def connect_event():
+    print('Client connected', request.sid)
+    emit('connected')
+@socketio.on('disconnect', namespace='/test')
+def disconnect_event():
+    print('Client disconnected', request.sid)
+@socketio.on('ping', namespace='/test')
+def ping_pong(message):
+    print('pong and message={}'.format(message))

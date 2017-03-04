@@ -34,3 +34,8 @@ docs/_build/
 # Misc
 .python-version
 
+# Node modules
+node_modules/
+
+# Temp
+*.swp
