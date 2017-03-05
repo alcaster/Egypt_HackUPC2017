@@ -20,7 +20,6 @@
             $('form#emit').submit(function(event) {
                 console.log('Sending data');
                 findIP.then(ip => socket.emit('message',{text_message: $('#message_text').val(),from:ip,date:Date().toLocaleString()})).catch(e => console.error(e))
-                document.getElementById('emit').reset();
                 return false;
             });
 });
