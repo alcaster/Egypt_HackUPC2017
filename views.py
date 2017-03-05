@@ -20,6 +20,8 @@ def disconnect_event():
     print('Client disconnected', request.sid)
 
 
-@socketio.on('ping', namespace='/test')
-def ping_pong(message):
-    print('pong and message={}'.format(message))
+@socketio.on('message', namespace='/test')
+def received_message(json):
+    print('json={}'.format(json))
+    emit('new_message',json)
+
